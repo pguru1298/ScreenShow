@@ -16,7 +16,7 @@ app.listen(3000, function () {
 });
 
 
-var options = { method: 'GET',
+function getMovie (){var options = { method: 'GET',
   url: 'https://api.themoviedb.org/3/search/movie',
   qs: { query: 'storks', language: 'en-US', api_key: apiKey },
   headers: { 'content-type': 'application/json' },
@@ -27,4 +27,36 @@ request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
   console.log(body);
-});
+});}
+
+function getPerson (celebrity)
+{var options = { method: 'GET',
+  url: 'https://api.themoviedb.org/3/search/person',
+  qs: { query: celebrity, language: 'en-US', api_key: apiKey },
+  headers: { 'content-type': 'application/json' },
+  body: {},
+  json: true };
+
+request(options, function (error, response, info) {
+  if (error) throw new Error(error);
+  console.log(info.results[0].id);
+  // returns after digging through the numbers and returns the idea of result
+});}
+
+getPerson("Brad Pitt")
+
+function getGenre (back)
+{var options = { method: 'GET',
+  url: 'https://api.themoviedb.org/3/search/genre',
+  qs: { query: back, language: 'en-US', api_key: apiKey },
+  headers: { 'content-type': 'application/json' },
+  body: {},
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});}
+
+getPerson("Action")
