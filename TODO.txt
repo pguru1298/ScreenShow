@@ -1,0 +1,3 @@
+TODO:
+Have functions return promises
+display them on webpage w/ PROMISE.then() annd res.send

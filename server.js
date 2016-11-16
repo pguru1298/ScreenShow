@@ -17,7 +17,11 @@ app.listen(3000, function () {
 });
 
 app.get('/movies',function (req, res) {
-  res.send(getPerson("Brad Pitt"));
+    getMovie("Storks").then(function(value){
+            res.send("Movie: " + value.results[0].original_title + " Summary: " + value.results[0].overview + " ID: " + value.results[0].id);   
+    }, function(err){
+        console.log(err);
+    })
 });
 
 
