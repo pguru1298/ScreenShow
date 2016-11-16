@@ -1,0 +1,13 @@
+Steps to Commiting from Git Shell (blue terminal)
+
+1. cd into the project folder (ScreenShow in our case)
+	cd ScreenShow
+2. Tell Git to keep track of the files you want to keep track of
+	git add . OR git add <SPECIFIC FILE NAME WITHOUT THE ANGLEBRACKETS>
+3. Commit changes to a specific branch and give it a name
+	git commit -m "this commits to master branch" OR git commit SPECIFICBRANCH "this commits to a specific branch"
+4. Push your changes to Github
+	git push
+
+and if you need to know what is going on at any point run:
+	git status
