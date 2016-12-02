@@ -10,11 +10,30 @@
 			<input type="text" id="showField" value = "enter tv">
 			<br>
 			<input type="submit" id='button' value="Submit">
+			<div id="summary">
+			</div>
+
 			<script type="text/javascript">
 			$(function(){				
                 $('#button').click(function(e){
                     e.preventDefault();
-                    console.log("Hello World");
+                    var showName = $("#showField").val();
+                    console.log(showName);
+                    
+                    var settings = {
+					  "async": true,
+					  "crossDomain": true,
+					  "url": "https://api.themoviedb.org/3/search/tv?page=1&query="+showName+"&language=en-US&api_key=2f4fe68403709710f406f4da7be00736",
+					  "method": "GET",
+					  "headers": {},
+					  "data": "{}"
+					}
+
+				$.ajax(settings).done(function (response) {
+					overview = response.results[0].overview;
+				  console.log(response);
+				  $("#summary").text(overview);
+				});
                 });
             });
 			</script>
