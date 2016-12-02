@@ -5,6 +5,7 @@ var app = express();
 var rP = require("request-promise");
 
 var apiKey = "2f4fe68403709710f406f4da7be00736"
+var workingDir = "C:/Users/cpagu/Documents/GitHub/ScreenShow/"
 
 //this is a route
 //this gets executed when you reach "URL/"
@@ -15,7 +16,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/tvshows',function (req, res) {
-
+    res.sendFile(workingDir + "tvshow.html");
 });
 
 app.listen(3000, function () {

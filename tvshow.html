@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>TV Show Search</title>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 
@@ -10,9 +11,18 @@
 			<input type="text" id="showField" value = "enter tv">
 			<br>
 			<input type="submit" id='button' value="Submit">
-			<div id="summary">
-			</div>
+			<div id="summary"></div>
+			<div id="picture"></div>
+			
+			<!-- style stuff goes below -->
+			<style>
+			body {
+				background-color: lightblue;
+			}
+			</style>
 
+			
+			<!-- JS stuff goes below -->
 			<script type="text/javascript">
 			$(function(){				
                 $('#button').click(function(e){
@@ -30,9 +40,18 @@
 					}
 
 				$.ajax(settings).done(function (response) {
-					overview = response.results[0].overview;
-				  console.log(response);
-				  $("#summary").text(overview);
+					var overview = response.results[0].overview;
+				    console.log(response);
+				    $("#summary").text(overview);
+				    
+				    var poster = response.results[0].poster_path; //poster picture
+				    var imgPath = "https://image.tmdb.org/t/p/w185/"+poster;
+				    console.log(imgPath);
+
+				    var img=$("<img />").attr("src",imgPath); //creates an "image"
+					$("#picture").empty() //empties the dive where the image goes
+					img.appendTo($("#picture")); //adds the image to the div called movieposter
+
 				});
                 });
             });
