@@ -1,15 +1,15 @@
 <html>
 	<head>
-		<title>TV Show Search</title>
+		<title>Movie Search</title>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 
 	<body>
 		<center>
-		TV Show:
+		Movie:
 			<br>
-			<input type="text" id="showField" value = "enter tv">
+			<input type="text" id="showField" value = "enter movie">
 			<br>
 			<input type="submit" id='button' value="Submit">
 			<div id="summary"></div>
@@ -19,7 +19,7 @@
 			<!-- style stuff goes below -->
 			<style>
 			body {
-				background-color: lightblue;
+				background-color: e57373;
 			}
 			</style>
 
@@ -29,14 +29,13 @@
 			$(function(){				
                 $('#button').click(function(e){
                     e.preventDefault();
-                    var showName = $("#showField").val();
-                    console.log(showName);
+                    var movieName = $("#showField").val();
+                    console.log(movieName);
                     
                     var settings = {
 					  "async": true,
 					  "crossDomain": true,
-					  "url": "https://api.themoviedb.org/3/search/tv?page=1&query="+showName+"&language=en-US&api_key=2f4fe68403709710f406f4da7be00736",
-
+					  "url": "https://api.themoviedb.org/3/search/movie?include_adult=false&page=1&query="+movieName+"&language=en-US&api_key=2f4fe68403709710f406f4da7be00736",
 					  "method": "GET",
 					  "headers": {},
 					  "data": "{}"

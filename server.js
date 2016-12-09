@@ -13,6 +13,9 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
+app.get('/movies',function (req, res) {
+    res.sendFile(workingDir + "movies.html");
+});
 
 
 app.get('/tvshows',function (req, res) {
